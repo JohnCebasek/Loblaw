@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b8b-Rz-g3f">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Swifty News-->
+        <scene sceneID="5RU-Y7-BJj">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController title="Swifty News" id="GfI-VK-dtE" customClass="ViewController" customModule="Loblaw_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="h5n-OW-m8U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="NewsItemCell" rowHeight="163" id="hJI-lK-vMD" customClass="SwiftNewsTableViewCell" customModule="Loblaw_Test" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="163"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hJI-lK-vMD" id="Vwu-sk-aQm">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="163"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9TT-DA-4OK">
+                                            <rect key="frame" x="20" y="64" width="194" height="83"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="194" id="NGW-Tj-RwJ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMo-4E-gA6">
+                                            <rect key="frame" x="20" y="11" width="393" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gMo-4E-gA6" firstAttribute="leading" secondItem="9TT-DA-4OK" secondAttribute="leading" id="2wZ-Hz-62K"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gMo-4E-gA6" secondAttribute="trailing" constant="-51" id="4hI-Cq-NXA"/>
+                                        <constraint firstItem="gMo-4E-gA6" firstAttribute="leading" secondItem="Vwu-sk-aQm" secondAttribute="leadingMargin" id="Amj-5R-YXm"/>
+                                        <constraint firstItem="9TT-DA-4OK" firstAttribute="leading" secondItem="Vwu-sk-aQm" secondAttribute="leading" constant="20" symbolic="YES" id="LVn-MA-A9L"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="9TT-DA-4OK" secondAttribute="bottom" constant="5" id="bX9-Vl-gnn"/>
+                                        <constraint firstItem="gMo-4E-gA6" firstAttribute="top" secondItem="Vwu-sk-aQm" secondAttribute="topMargin" id="guP-Sj-8rI"/>
+                                        <constraint firstItem="9TT-DA-4OK" firstAttribute="top" secondItem="gMo-4E-gA6" secondAttribute="bottom" constant="32" id="m80-8z-Nhd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="newsItemImage" destination="9TT-DA-4OK" id="yLz-Ie-gbq"/>
+                                    <outlet property="newsItemTextLabel" destination="gMo-4E-gA6" id="b2F-Yk-D2m"/>
+                                    <segue destination="piG-Pr-PVO" kind="show" identifier="toDetailSelectSegue" id="guT-8C-YsT"/>
+                                    <segue destination="piG-Pr-PVO" kind="show" identifier="toDetailAccessorySegue" trigger="accessoryAction" id="zw4-0P-lfD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GfI-VK-dtE" id="JXB-VY-K3k"/>
+                            <outlet property="delegate" destination="GfI-VK-dtE" id="dFB-1K-SFR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Swift News" id="JcN-r5-SuD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ON6-b0-YO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-42.028985507246382" y="26.785714285714285"/>
+        </scene>
+        <!--Swift News Detail View Controller-->
+        <scene sceneID="WsM-IQ-znv">
+            <objects>
+                <viewController id="piG-Pr-PVO" customClass="SwiftNewsDetailViewController" customModule="Loblaw_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iL3-yI-1my">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8Di-8y-BzD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bwn-l4-fHa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ct-Gy-dTW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="686" y="41"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9jq-dg-mrq">
+            <objects>
+                <navigationController id="b8b-Rz-g3f" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eJm-jJ-Xhr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GfI-VK-dtE" kind="relationship" relationship="rootViewController" id="X6H-75-cqq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yt7-SR-GtA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-797" y="27"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zw4-0P-lfD"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

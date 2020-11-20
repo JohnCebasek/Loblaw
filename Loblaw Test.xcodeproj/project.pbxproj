@@ -13,6 +13,12 @@
 		F9551F5C25681E8C003F03EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5A25681E8C003F03EB /* Main.storyboard */; };
 		F9551F5E25681E8D003F03EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5D25681E8D003F03EB /* Assets.xcassets */; };
 		F9551F6125681E8D003F03EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5F25681E8D003F03EB /* LaunchScreen.storyboard */; };
+		F9551F6C256821E8003F03EB /* SwiftNewsTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F6B256821E8003F03EB /* SwiftNewsTableViewHelper.swift */; };
+		F9551F7025682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9551F6F25682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg */; };
+		F9551F7325682B1E003F03EB /* SwiftNewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7225682B1E003F03EB /* SwiftNewsManager.swift */; };
+		F9551F7625682C0C003F03EB /* SwiftNewsDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */; };
+		F9551F7B25682D36003F03EB /* SwiftNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7A25682D36003F03EB /* SwiftNewsTableViewCell.swift */; };
+		F9551F7F256832DF003F03EB /* SwiftNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7D256832DF003F03EB /* SwiftNewsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		F9551F5D25681E8D003F03EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9551F6025681E8D003F03EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9551F6225681E8D003F03EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9551F6B256821E8003F03EB /* SwiftNewsTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsTableViewHelper.swift; sourceTree = "<group>"; };
+		F9551F6F25682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "counterfeit-bills-in-red-deer-area.jpg"; sourceTree = "<group>"; };
+		F9551F7225682B1E003F03EB /* SwiftNewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsManager.swift; sourceTree = "<group>"; };
+		F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsDataItem.swift; sourceTree = "<group>"; };
+		F9551F7A25682D36003F03EB /* SwiftNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsTableViewCell.swift; sourceTree = "<group>"; };
+		F9551F7D256832DF003F03EB /* SwiftNewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,8 @@
 		F9551F5325681E8C003F03EB /* Loblaw Test */ = {
 			isa = PBXGroup;
 			children = (
+				F9551F6E25682419003F03EB /* Resources */,
+				F9551F8425683520003F03EB /* Custom Classes */,
 				F9551F5425681E8C003F03EB /* AppDelegate.swift */,
 				F9551F5625681E8C003F03EB /* SceneDelegate.swift */,
 				F9551F5825681E8C003F03EB /* ViewController.swift */,
@@ -65,6 +79,26 @@
 				F9551F6225681E8D003F03EB /* Info.plist */,
 			);
 			path = "Loblaw Test";
+			sourceTree = "<group>";
+		};
+		F9551F6E25682419003F03EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F9551F6F25682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F9551F8425683520003F03EB /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */,
+				F9551F7225682B1E003F03EB /* SwiftNewsManager.swift */,
+				F9551F6B256821E8003F03EB /* SwiftNewsTableViewHelper.swift */,
+				F9551F7A25682D36003F03EB /* SwiftNewsTableViewCell.swift */,
+				F9551F7D256832DF003F03EB /* SwiftNewsDetailViewController.swift */,
+			);
+			path = "Custom Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +161,7 @@
 				F9551F6125681E8D003F03EB /* LaunchScreen.storyboard in Resources */,
 				F9551F5E25681E8D003F03EB /* Assets.xcassets in Resources */,
 				F9551F5C25681E8C003F03EB /* Main.storyboard in Resources */,
+				F9551F7025682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +172,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9551F7B25682D36003F03EB /* SwiftNewsTableViewCell.swift in Sources */,
 				F9551F5925681E8C003F03EB /* ViewController.swift in Sources */,
+				F9551F7F256832DF003F03EB /* SwiftNewsDetailViewController.swift in Sources */,
+				F9551F7625682C0C003F03EB /* SwiftNewsDataItem.swift in Sources */,
+				F9551F6C256821E8003F03EB /* SwiftNewsTableViewHelper.swift in Sources */,
 				F9551F5525681E8C003F03EB /* AppDelegate.swift in Sources */,
+				F9551F7325682B1E003F03EB /* SwiftNewsManager.swift in Sources */,
 				F9551F5725681E8C003F03EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GL5S7XZC85;
 				INFOPLIST_FILE = "Loblaw Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johncebasek.Loblaw-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GL5S7XZC85;
 				INFOPLIST_FILE = "Loblaw Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johncebasek.Loblaw-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
