@@ -29,7 +29,7 @@ class ViewController: UITableViewController  {
         if let nextViewController = segue.destination as? SwiftNewsDetailViewController {
             var newsItem: SwiftNewsDataItem
             
-            guard let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell) else {
+            guard let indexPath = self.tableView.indexPath(for: sender as! SwiftNewsTableViewCell) else {
                 return
             }
 

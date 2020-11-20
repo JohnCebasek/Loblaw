@@ -26,6 +26,6 @@ class SwiftNewsTableViewCell: UITableViewCell {
         // stuff data into tableview cell here
         
         newsItemTextLabel?.text = newsItem.newsTitle
-        newsItemImage?.image = newsItem.newsImage
+//        newsItemImage?.image = newsItem.newsImage
     }
 }

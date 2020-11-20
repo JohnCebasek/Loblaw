@@ -13,7 +13,6 @@
 		F9551F5C25681E8C003F03EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5A25681E8C003F03EB /* Main.storyboard */; };
 		F9551F5E25681E8D003F03EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5D25681E8D003F03EB /* Assets.xcassets */; };
 		F9551F6125681E8D003F03EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5F25681E8D003F03EB /* LaunchScreen.storyboard */; };
-		F9551F6C256821E8003F03EB /* SwiftNewsTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F6B256821E8003F03EB /* SwiftNewsTableViewHelper.swift */; };
 		F9551F7025682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9551F6F25682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg */; };
 		F9551F7325682B1E003F03EB /* SwiftNewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7225682B1E003F03EB /* SwiftNewsManager.swift */; };
 		F9551F7625682C0C003F03EB /* SwiftNewsDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */; };
@@ -30,7 +29,6 @@
 		F9551F5D25681E8D003F03EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9551F6025681E8D003F03EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9551F6225681E8D003F03EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9551F6B256821E8003F03EB /* SwiftNewsTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsTableViewHelper.swift; sourceTree = "<group>"; };
 		F9551F6F25682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "counterfeit-bills-in-red-deer-area.jpg"; sourceTree = "<group>"; };
 		F9551F7225682B1E003F03EB /* SwiftNewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsManager.swift; sourceTree = "<group>"; };
 		F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsDataItem.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			children = (
 				F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */,
 				F9551F7225682B1E003F03EB /* SwiftNewsManager.swift */,
-				F9551F6B256821E8003F03EB /* SwiftNewsTableViewHelper.swift */,
 				F9551F7A25682D36003F03EB /* SwiftNewsTableViewCell.swift */,
 				F9551F7D256832DF003F03EB /* SwiftNewsDetailViewController.swift */,
 			);
@@ -176,7 +173,6 @@
 				F9551F5925681E8C003F03EB /* ViewController.swift in Sources */,
 				F9551F7F256832DF003F03EB /* SwiftNewsDetailViewController.swift in Sources */,
 				F9551F7625682C0C003F03EB /* SwiftNewsDataItem.swift in Sources */,
-				F9551F6C256821E8003F03EB /* SwiftNewsTableViewHelper.swift in Sources */,
 				F9551F5525681E8C003F03EB /* AppDelegate.swift in Sources */,
 				F9551F7325682B1E003F03EB /* SwiftNewsManager.swift in Sources */,
 				F9551F5725681E8C003F03EB /* SceneDelegate.swift in Sources */,
@@ -336,7 +332,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johncebasek.Loblaw-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -356,7 +352,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johncebasek.Loblaw-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
