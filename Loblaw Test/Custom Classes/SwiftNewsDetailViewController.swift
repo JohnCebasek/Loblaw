@@ -9,7 +9,7 @@ import UIKit
 
 class SwiftNewsDetailViewController: UIViewController {
     
-    var dataItem: SwiftNewsDataItem?
+    var swiftNewsData: SwiftNewsDataItem?
     var navBarLabelView: UILabel?;
     
     @IBOutlet weak var thumbNailImage: UIImageView!
@@ -28,7 +28,8 @@ class SwiftNewsDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navBarLabelView?.text = dataItem?.newsTitle
-        articleTextView.text = dataItem?.newsDescription
+        navBarLabelView?.text = swiftNewsData?.newsTitle
+        articleTextView.text = swiftNewsData?.newsDescription
+        thumbNailImage.image = swiftNewsData?.thumbNailImage
     }
 }

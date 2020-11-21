@@ -22,6 +22,7 @@ class SwiftNewsMainViewController: UITableViewController  {
 
     private var dataManager = SwiftNewsManager()
     private let cellIdentifier = "NewsItemCell"
+    private let sectionCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +34,13 @@ class SwiftNewsMainViewController: UITableViewController  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        dataManager.loadUpJSON {
+        dataManager.loadUpJSON {        // URLSession downloads stuff on a background thread, so when the download is finished, kick reloading back onto the main thread (where it belongs)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
-    
+        
     // MARK: - Navigation
     
     // sender is the UItableViewCell that the user has tapped or the accessory button has been tapped
@@ -56,12 +57,17 @@ class SwiftNewsMainViewController: UITableViewController  {
 
             newsItem = dataManager.item(at: indexPath.row)
             nextViewController.title = newsItem.newsTitle
-            nextViewController.dataItem = newsItem
+            nextViewController.swiftNewsData = newsItem
         }
     }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.itemsCount
+        return dataManager.numberOfItems
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return dataManager.numberOfSections
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,11 +76,6 @@ class SwiftNewsMainViewController: UITableViewController  {
         let item = dataManager.item(at: indexPath.row)
         cell.config(with: item)
         
-        if (item.thumbNailImageURL != "") {
-            cell.newsItemImage?.downloadImageFrom(link: item.thumbNailImageURL,
-                                                  contentMode: UIView.ContentMode.scaleAspectFit)
-            cell.thumbNailHeightConstraint.constant = 50.0
-        }
         return cell
     }
 }

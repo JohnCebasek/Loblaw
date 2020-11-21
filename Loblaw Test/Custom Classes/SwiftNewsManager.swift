@@ -22,7 +22,7 @@ let SelfTextKey = "selftext"
 public class SwiftNewsManager {
     
     let dataSourceURL = "https://www.reddit.com/r/swift/.json"
-    
+    let countOfSections = 1
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     var items: NSMutableArray = NSMutableArray.init()
@@ -32,8 +32,12 @@ public class SwiftNewsManager {
         case ConversionFailed = "Error: Conversion from JSON failed"
     }
     
-    public var itemsCount: Int {
+    public var numberOfItems: Int {
         return items.count
+    }
+    
+    public var numberOfSections: Int {
+        return countOfSections
     }
     
     public func item(at index: Int) -> SwiftNewsDataItem {
@@ -73,7 +77,7 @@ public class SwiftNewsManager {
                         break       // Dictionary may be broken, so try the next one
                     }
                     
-                    guard var articleImage = articleDict?.object(forKey: ThumbNailKey) as? String else {
+                    guard var articleImageURL = articleDict?.object(forKey: ThumbNailKey) as? String else {
                         break
                     }
                     
@@ -81,11 +85,11 @@ public class SwiftNewsManager {
                         break
                     }
                     
-                    if self.verifyURL(urlString: articleImage) == false {
-                        articleImage = ""
+                    if self.verifyURL(urlString: articleImageURL) == false {
+                        articleImageURL = ""
                     }
                     
-                    let dataItem = SwiftNewsDataItem(newsTitle: articleTitle, newsDescription: newsDescription, newsImage: articleImage)
+                    let dataItem = SwiftNewsDataItem(newsTitle: articleTitle, newsDescription: newsDescription, thumbNailImageURL: articleImageURL)
                     self.items.add(dataItem)
                 }
                 

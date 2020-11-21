@@ -14,9 +14,6 @@ class SwiftNewsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        self.thumbNailHeightConstraint.constant = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,6 +23,13 @@ class SwiftNewsTableViewCell: UITableViewCell {
     }
     
     func config(with newsItem: SwiftNewsDataItem) {
+        self.thumbNailHeightConstraint.constant = 0
         newsItemTextLabel?.text = newsItem.newsTitle
+        
+        if (newsItem.thumbNailImage != nil)
+        {
+            newsItemImage?.image = newsItem.thumbNailImage
+            self.thumbNailHeightConstraint.constant = 50.0;
+        }
     }
 }
