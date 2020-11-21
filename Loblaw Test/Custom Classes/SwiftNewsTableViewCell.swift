@@ -10,10 +10,13 @@ import UIKit
 class SwiftNewsTableViewCell: UITableViewCell {
     @IBOutlet weak var newsItemTextLabel: UILabel?
     @IBOutlet weak var newsItemImage: UIImageView?
-
+    @IBOutlet weak var thumbNailHeightConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.thumbNailHeightConstraint.constant = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,9 +26,6 @@ class SwiftNewsTableViewCell: UITableViewCell {
     }
     
     func config(with newsItem: SwiftNewsDataItem) {
-        // stuff data into tableview cell here
-        
         newsItemTextLabel?.text = newsItem.newsTitle
-//        newsItemImage?.image = newsItem.newsImage
     }
 }

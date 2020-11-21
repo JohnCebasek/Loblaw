@@ -32,10 +32,6 @@ public class SwiftNewsManager {
         case ConversionFailed = "Error: Conversion from JSON failed"
     }
     
-    init() {
-        loadUpJSON()
-    }
-    
     public var itemsCount: Int {
         return items.count
     }
@@ -44,7 +40,7 @@ public class SwiftNewsManager {
         return items[index] as! SwiftNewsDataItem;
     }
     
-    public func loadUpJSON()
+    public func loadUpJSON(completion: @escaping () -> Void)
     {
         guard let endPoint = URL(string: dataSourceURL) else {
             return
@@ -60,27 +56,24 @@ public class SwiftNewsManager {
                     throw JSONError.ConversionFailed
                 }
                 
-                print(topLevelData, topLevelData.count, type(of: topLevelData))
-
-                let dataDictionary: NSDictionary? = topLevelData.object(forKey: DataKey) as? NSDictionary
-                print(dataDictionary as Any, type(of: dataDictionary))
-                
-                let childrenArray: NSArray? = dataDictionary?.object(forKey: ChildrenKey) as? NSArray
-                print(childrenArray as Any, type(of: childrenArray))
+                guard let dataDictionary: NSDictionary = topLevelData.object(forKey: DataKey) as? NSDictionary else {
+                    return
+                }
+                let childrenArray: NSArray? = dataDictionary.object(forKey: ChildrenKey) as? NSArray
                 
                 guard let itemCount = childrenArray?.count else {
                     return
                 }
                 
-                for count in 0 ... itemCount - 1 {
+                for count in 0 ... (itemCount - 1) {
                     let containerDict: NSDictionary? = childrenArray?.object(at: count) as? NSDictionary
                     let articleDict = containerDict?.object(forKey: DataKey) as? NSDictionary
                     
                     guard let articleTitle = articleDict?.object(forKey: TitleKey) as? String else {
-                        break
+                        break       // Dictionary may be broken, so try the next one
                     }
                     
-                    guard let articleImage = articleDict?.object(forKey: ThumbNailKey) as? String else {
+                    guard var articleImage = articleDict?.object(forKey: ThumbNailKey) as? String else {
                         break
                     }
                     
@@ -88,12 +81,17 @@ public class SwiftNewsManager {
                         break
                     }
                     
+                    if self.verifyURL(urlString: articleImage) == false {
+                        articleImage = ""
+                    }
+                    
                     let dataItem = SwiftNewsDataItem(newsTitle: articleTitle, newsDescription: newsDescription, newsImage: articleImage)
                     self.items.add(dataItem)
                 }
                 
-                print(self.items)
+                completion()
             }
+
             catch let error as JSONError {
                 print(error.rawValue)
             }
@@ -101,6 +99,23 @@ public class SwiftNewsManager {
                 print(error.description)
             }
         }.resume()
+    }
+    
+    // Normally I would do this with regEx and friends, but I can't remember how right now...
+    func verifyURL(urlString: String) -> Bool
+    {
+        var result = false
+        guard let urlFromString = NSURL(string: urlString) as NSURL? else {
+            return result
+        }
+        let hostString = urlFromString.scheme
+        
+        if hostString == "http" ||
+            hostString == "https" {
+            result = true
+        }
+        
+        return result
     }
 }
 

@@ -12,10 +12,11 @@ import UIKit
 // a hex address
 extension SwiftNewsDataItem: CustomStringConvertible {
     var debugDescription: String {
+        let debugStringFormat = "Title: %@ Description: %@ Image URL: %@"
         let result = String(format: debugStringFormat,
                             self.newsTitle,
                             self.newsDescription,
-                            self.newsImage)
+                            self.thumbNailImageURL)
         
         return result
     }
@@ -30,14 +31,13 @@ extension SwiftNewsDataItem: CustomStringConvertible {
 }
 
 public class SwiftNewsDataItem {
-    let debugStringFormat = "Title: %@ Description: %@ Image URL: %@"
     var newsTitle : String
     var newsDescription: String
-    var newsImage: String
+    var thumbNailImageURL: String
 
     internal init(newsTitle: String = "", newsDescription: String = "", newsImage: String = "") {
         self.newsTitle = newsTitle
         self.newsDescription = newsDescription
-        self.newsImage = newsImage
+        self.thumbNailImageURL = newsImage
     }
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F9551F5525681E8C003F03EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F5425681E8C003F03EB /* AppDelegate.swift */; };
 		F9551F5725681E8C003F03EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F5625681E8C003F03EB /* SceneDelegate.swift */; };
-		F9551F5925681E8C003F03EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F5825681E8C003F03EB /* ViewController.swift */; };
+		F9551F5925681E8C003F03EB /* SwiftNewsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F5825681E8C003F03EB /* SwiftNewsMainViewController.swift */; };
 		F9551F5C25681E8C003F03EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5A25681E8C003F03EB /* Main.storyboard */; };
 		F9551F5E25681E8D003F03EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5D25681E8D003F03EB /* Assets.xcassets */; };
 		F9551F6125681E8D003F03EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9551F5F25681E8D003F03EB /* LaunchScreen.storyboard */; };
@@ -24,7 +24,7 @@
 		F9551F5125681E8C003F03EB /* Loblaw Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loblaw Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9551F5425681E8C003F03EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9551F5625681E8C003F03EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F9551F5825681E8C003F03EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F9551F5825681E8C003F03EB /* SwiftNewsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsMainViewController.swift; sourceTree = "<group>"; };
 		F9551F5B25681E8C003F03EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9551F5D25681E8D003F03EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9551F6025681E8D003F03EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 				F9551F8425683520003F03EB /* Custom Classes */,
 				F9551F5425681E8C003F03EB /* AppDelegate.swift */,
 				F9551F5625681E8C003F03EB /* SceneDelegate.swift */,
-				F9551F5825681E8C003F03EB /* ViewController.swift */,
+				F9551F5825681E8C003F03EB /* SwiftNewsMainViewController.swift */,
 				F9551F5A25681E8C003F03EB /* Main.storyboard */,
 				F9551F5D25681E8D003F03EB /* Assets.xcassets */,
 				F9551F5F25681E8D003F03EB /* LaunchScreen.storyboard */,
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9551F7B25682D36003F03EB /* SwiftNewsTableViewCell.swift in Sources */,
-				F9551F5925681E8C003F03EB /* ViewController.swift in Sources */,
+				F9551F5925681E8C003F03EB /* SwiftNewsMainViewController.swift in Sources */,
 				F9551F7F256832DF003F03EB /* SwiftNewsDetailViewController.swift in Sources */,
 				F9551F7625682C0C003F03EB /* SwiftNewsDataItem.swift in Sources */,
 				F9551F5525681E8C003F03EB /* AppDelegate.swift in Sources */,

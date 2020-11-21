@@ -7,16 +7,37 @@
 
 import UIKit
 
-class ViewController: UITableViewController  {
+extension UIImageView {
+    func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
+        URLSession.shared.dataTask(with: NSURL(string:link)! as URL, completionHandler: { (data, response, error) -> Void in
+            DispatchQueue.main.async {
+                self.contentMode =  contentMode
+                if let data = data { self.image = UIImage(data: data) }
+            }
+        }).resume()
+    }
+}
+
+class SwiftNewsMainViewController: UITableViewController  {
 
     private var dataManager = SwiftNewsManager()
     private let cellIdentifier = "NewsItemCell"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dataManager.loadUpJSON {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Navigation
@@ -44,9 +65,16 @@ class ViewController: UITableViewController  {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell: SwiftNewsTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SwiftNewsTableViewCell
         let item = dataManager.item(at: indexPath.row)
         cell.config(with: item)
+        
+        if (item.thumbNailImageURL != "") {
+            cell.newsItemImage?.downloadImageFrom(link: item.thumbNailImageURL,
+                                                  contentMode: UIView.ContentMode.scaleAspectFit)
+            cell.thumbNailHeightConstraint.constant = 50.0
+        }
         return cell
     }
 }
