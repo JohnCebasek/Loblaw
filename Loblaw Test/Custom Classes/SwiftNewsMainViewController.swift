@@ -10,19 +10,18 @@ import UIKit
 typealias DownloadCompletion = (Bool) -> Void
 
 extension UIImageView {
-    func downloadArticleImage(_ URLString: String, imageCache: NSCache<NSString, UIImage>, completion: @escaping (DownloadCompletion)) {
+    func downloadArticleImage(_ URLString: String, imageCache: NSCache<NSString, UIImage>, completion: (DownloadCompletion)?) {
         self.image = nil
         if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
             self.image = cachedImage
-            completion(true)
+            completion?(true)
             return
         }
 
         if let url = URL(string: URLString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-
                 if error != nil {
-                    print("ERROR LOADING IMAGES FROM URL: \(String(describing: error))")
+                    print("Error Loading Data From URL: \(String(describing: error))")
                     return
                 }
 
@@ -31,11 +30,11 @@ extension UIImageView {
                             imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
                             DispatchQueue.main.async {
                                 self.image = downloadedImage
-                                completion(true)
+                                completion?(true)
                             }
                         }
                         else {
-                            completion(false)
+                            completion?(false)
                         }
                 }
             }).resume()

@@ -46,7 +46,7 @@ public class SwiftNewsManager {
         return items[index] as! SwiftNewsDataItem;
     }
     
-    public func loadUpJSON(completion: @escaping () -> Void)
+    public func loadUpJSON(completion: (() -> Void)?)
     {
         guard let endPoint = URL(string: dataSourceURL) else {
             return
@@ -99,7 +99,7 @@ public class SwiftNewsManager {
                     self.items.add(dataItem)
                 }
                 
-                completion()
+                completion?()
             }
 
             catch let error as JSONError {

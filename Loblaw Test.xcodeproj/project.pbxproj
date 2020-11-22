@@ -72,7 +72,6 @@
 				F9551F8425683520003F03EB /* Custom Classes */,
 				F9551F5425681E8C003F03EB /* AppDelegate.swift */,
 				F9551F5625681E8C003F03EB /* SceneDelegate.swift */,
-				F9551F5825681E8C003F03EB /* SwiftNewsMainViewController.swift */,
 				F9551F5A25681E8C003F03EB /* Main.storyboard */,
 				F9551F5D25681E8D003F03EB /* Assets.xcassets */,
 				F9551F5F25681E8D003F03EB /* LaunchScreen.storyboard */,
@@ -97,6 +96,7 @@
 				F9551F7225682B1E003F03EB /* SwiftNewsManager.swift */,
 				F9551F7A25682D36003F03EB /* SwiftNewsTableViewCell.swift */,
 				F9551F7D256832DF003F03EB /* SwiftNewsDetailViewController.swift */,
+				F9551F5825681E8C003F03EB /* SwiftNewsMainViewController.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
