@@ -34,23 +34,13 @@ public class SwiftNewsDataItem {
     var newsTitle : String
     var newsDescription: String
     var thumbNailImageURL: String
-    var thumbNailImage: UIImage?
+    var thumbNailImage: UIImage? = nil
     
-    init(newsTitle: String, newsDescription: String, thumbNailImageURL: String) {
+    
+    internal init(newsTitle: String, newsDescription: String, thumbNailImageURL: String, thumbNailImage: UIImage? = nil) {
         self.newsTitle = newsTitle
         self.newsDescription = newsDescription
         self.thumbNailImageURL = thumbNailImageURL
-        self.setImage(from: thumbNailImageURL)
-    }
-    
-    func setImage(from url: String) {
-        guard let imageURL = URL(string: url) else { return }
-        
-        // just not to cause a deadlock in UI!
-        guard let imageData = try? Data(contentsOf: imageURL) else { return }
-        
-        let image = UIImage(data: imageData)
-        
-        self.thumbNailImage = image
+        self.thumbNailImage = thumbNailImage
     }
 }

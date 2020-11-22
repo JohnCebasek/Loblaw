@@ -61,12 +61,12 @@ public class SwiftNewsManager {
                 }
                 
                 guard let dataDictionary: NSDictionary = topLevelData.object(forKey: DataKey) as? NSDictionary else {
-                    return
+                    throw JSONError.NoData
                 }
                 let childrenArray: NSArray? = dataDictionary.object(forKey: ChildrenKey) as? NSArray
                 
                 guard let itemCount = childrenArray?.count else {
-                    return
+                    throw JSONError.NoData
                 }
                 
                 for count in 0 ... (itemCount - 1) {
@@ -89,7 +89,7 @@ public class SwiftNewsManager {
                         articleImageURL = ""
                     }
                     
-                    let dataItem = SwiftNewsDataItem(newsTitle: articleTitle, newsDescription: newsDescription, thumbNailImageURL: articleImageURL)
+                    let dataItem = SwiftNewsDataItem(newsTitle: articleTitle, newsDescription: newsDescription, thumbNailImageURL: articleImageURL, thumbNailImage: nil)
                     self.items.add(dataItem)
                 }
                 

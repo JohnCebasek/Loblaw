@@ -7,19 +7,45 @@
 
 import UIKit
 
+typealias DownloadCompletion = (Bool) -> Void
+
 extension UIImageView {
-    func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
-        URLSession.shared.dataTask(with: NSURL(string:link)! as URL, completionHandler: { (data, response, error) -> Void in
-            DispatchQueue.main.async {
-                self.contentMode =  contentMode
-                if let data = data { self.image = UIImage(data: data) }
-            }
-        }).resume()
+    func downloadArticleImage(_ URLString: String, imageCache: NSCache<NSString, UIImage>, completion: @escaping (DownloadCompletion)) {
+        self.image = nil
+        if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
+            self.image = cachedImage
+            completion(true)
+            return
+        }
+
+        if let url = URL(string: URLString) {
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+
+                if error != nil {
+                    print("ERROR LOADING IMAGES FROM URL: \(String(describing: error))")
+                    return
+                }
+
+                    if let data = data {
+                        if let downloadedImage = UIImage(data: data) {
+                            imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
+                            DispatchQueue.main.async {
+                                self.image = downloadedImage
+                                completion(true)
+                            }
+                        }
+                        else {
+                            completion(false)
+                        }
+                }
+            }).resume()
+        }
     }
 }
 
 class SwiftNewsMainViewController: UITableViewController  {
 
+    private let imageCache = NSCache<NSString, UIImage>()
     private var dataManager = SwiftNewsManager()
     private let cellIdentifier = "NewsItemCell"
     private let sectionCount = 1
@@ -27,18 +53,33 @@ class SwiftNewsMainViewController: UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageCache.name = "Image Cache"
+        imageCache.countLimit = 100
+        
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.estimatedRowHeight = 84.0
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         dataManager.loadUpJSON {        // URLSession downloads stuff on a background thread, so when the download is finished, kick reloading back onto the main thread (where it belongs)
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.initializeTable()
             }
         }
+    }
+    
+    func initializeTable()
+    {
+        self.tableView.reloadData()
     }
         
     // MARK: - Navigation
@@ -70,11 +111,21 @@ class SwiftNewsMainViewController: UITableViewController  {
         return dataManager.numberOfSections
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> SwiftNewsTableViewCell {
         let cell: SwiftNewsTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SwiftNewsTableViewCell
-        let item = dataManager.item(at: indexPath.row)
+        let item = dataManager.item(at: indexPath.row) as SwiftNewsDataItem
+
         cell.config(with: item)
+
+        if (item.thumbNailImageURL != "") {
+            cell.newsItemImage?.downloadArticleImage(item.thumbNailImageURL, imageCache: self.imageCache, completion: { (success) in
+                if success {
+                    tableView.beginUpdates()
+                    item.thumbNailImage = cell.newsItemImage?.image
+                    tableView.endUpdates()
+                }
+            })
+        }
         
         return cell
     }
