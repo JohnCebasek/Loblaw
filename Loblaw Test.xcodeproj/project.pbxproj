@@ -18,6 +18,7 @@
 		F9551F7625682C0C003F03EB /* SwiftNewsDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */; };
 		F9551F7B25682D36003F03EB /* SwiftNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7A25682D36003F03EB /* SwiftNewsTableViewCell.swift */; };
 		F9551F7F256832DF003F03EB /* SwiftNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9551F7D256832DF003F03EB /* SwiftNewsDetailViewController.swift */; };
+		F9DEA363256AD446007FB69D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9DEA362256AD446007FB69D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F9551F7525682C0C003F03EB /* SwiftNewsDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsDataItem.swift; sourceTree = "<group>"; };
 		F9551F7A25682D36003F03EB /* SwiftNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsTableViewCell.swift; sourceTree = "<group>"; };
 		F9551F7D256832DF003F03EB /* SwiftNewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsDetailViewController.swift; sourceTree = "<group>"; };
+		F9DEA362256AD446007FB69D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				F9551F6F25682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg */,
+				F9DEA362256AD446007FB69D /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				F9551F5E25681E8D003F03EB /* Assets.xcassets in Resources */,
 				F9551F5C25681E8C003F03EB /* Main.storyboard in Resources */,
 				F9551F7025682456003F03EB /* counterfeit-bills-in-red-deer-area.jpg in Resources */,
+				F9DEA363256AD446007FB69D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

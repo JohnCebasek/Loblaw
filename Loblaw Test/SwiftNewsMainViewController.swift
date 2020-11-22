@@ -65,14 +65,12 @@ class SwiftNewsMainViewController: UITableViewController  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        dataManager.loadUpJSON {        // URLSession downloads stuff on a background thread, so when the download is finished, kick reloading back onto the main thread (where it belongs)
-            DispatchQueue.main.async {
-                self.initializeTable()
+        // Only load the data once
+        if dataManager.items.count == 0 {
+            dataManager.loadUpJSON {        
+                DispatchQueue.main.async {
+                    self.initializeTable()
+                }
             }
         }
     }

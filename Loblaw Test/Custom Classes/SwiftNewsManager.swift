@@ -24,6 +24,8 @@ public class SwiftNewsManager {
     let dataSourceURL = "https://www.reddit.com/r/swift/.json"
     let countOfSections = 1
     let defaultSession = URLSession(configuration: .default)
+    let noDescriptionKey = "NoDescription"
+    
     var dataTask: URLSessionDataTask?
     var items: NSMutableArray = NSMutableArray.init()
     
@@ -81,12 +83,16 @@ public class SwiftNewsManager {
                         break
                     }
                     
-                    guard let newsDescription = articleDict?.object(forKey: SelfTextKey) as? String else {
+                    guard var newsDescription = articleDict?.object(forKey: SelfTextKey) as? String else {
                         break
                     }
                     
                     if self.verifyURL(urlString: articleImageURL) == false {
                         articleImageURL = ""
+                    }
+                    
+                    if newsDescription == "" {
+                        newsDescription = NSLocalizedString(self.noDescriptionKey, comment: "")
                     }
                     
                     let dataItem = SwiftNewsDataItem(newsTitle: articleTitle, newsDescription: newsDescription, thumbNailImageURL: articleImageURL, thumbNailImage: nil)
