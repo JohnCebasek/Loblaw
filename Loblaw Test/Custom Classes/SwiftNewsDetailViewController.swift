@@ -14,6 +14,7 @@ class SwiftNewsDetailViewController: UIViewController {
     
     @IBOutlet weak var thumbNailImage: UIImageView!
     @IBOutlet weak var articleTextView: UITextView!
+    @IBOutlet weak var detailImageHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +32,10 @@ class SwiftNewsDetailViewController: UIViewController {
         navBarLabelView?.text = swiftNewsData?.newsTitle
         articleTextView.text = swiftNewsData?.newsDescription
         thumbNailImage.image = swiftNewsData?.thumbNailImage
+        
+        if (thumbNailImage.image == nil)
+        {
+            detailImageHeightConstraint.constant = 0.0
+        }
     }
 }

@@ -105,6 +105,7 @@
                     <navigationItem key="navigationItem" id="Bwn-l4-fHa"/>
                     <connections>
                         <outlet property="articleTextView" destination="0N8-g6-PUU" id="9Wz-vh-vBn"/>
+                        <outlet property="detailImageHeightConstraint" destination="DYK-dO-q6R" id="Xls-jo-v5z"/>
                         <outlet property="thumbNailImage" destination="Ipd-z1-jlD" id="GgE-nM-BDx"/>
                     </connections>
                 </viewController>
